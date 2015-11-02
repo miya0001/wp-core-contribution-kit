@@ -14,14 +14,14 @@ It is very easy to launch WordPress development environment from svn repository.
 
 ```
 $ mkdir ~/Desktop/wordpress && cd $_
-$ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash
+$ curl https://raw.githubusercontent.com/miya0001/wp-core-contribution-kit/master/run.sh | bash
 ```
 
 Or
 
 ```
 $ mkdir ~/Desktop/wordpress && cd $_
-$ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s <db-user> <db-pass> <db-name>
+$ curl https://raw.githubusercontent.com/miya0001/wp-core-contribution-kit/master/run.sh | bash -s <db-user> <db-pass> <db-name>
 ```
 
 ## Defaults

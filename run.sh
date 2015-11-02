@@ -18,7 +18,7 @@ if [ -e "$WP_PATH/wp-config.php" ]; then
     exit 0
 fi
 
-echo "path: www" > $(pwd)/wp-cli.yml
+echo "path: trunk/src" > $(pwd)/wp-cli.yml
 
 if [ $DB_PASS ]; then
     echo "DROP DATABASE IF EXISTS $DB_NAME;" | mysql -u$DB_USER -p$DB_PASS

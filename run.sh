@@ -62,10 +62,10 @@ wp core install \
 --admin_password="admin" \
 --admin_email="admin@example.com"
 
-bin/wp rewrite structure "/archives/%post_id%"
+wp rewrite structure "/archives/%post_id%"
 
-bin/wp option update blogname "$WP_TITLE"
-bin/wp option update blogdescription "$WP_DESC"
+wp option update blogname "$WP_TITLE"
+wp option update blogdescription "$WP_DESC"
 
 open http://127.0.0.1:$PORT
 wp server --host=0.0.0.0 --port=$PORT --docroot=$WP_PATH

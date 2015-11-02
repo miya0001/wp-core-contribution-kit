@@ -6,10 +6,10 @@ mysql.server start
 
 DB_USER=${1-root}
 DB_PASS=$2
-DB_NAME=${3-wp-trunk}
+DB_NAME=${3-wptrunk}
 PORT=8080
 WP_PATH=$(pwd)/trunk/src
-WP_TITLE='Welcome to the WordPress'
+WP_TITLE='WordPress Trunk'
 WP_DESC='Hello World!'
 
 if [ -e "$WP_PATH/wp-config.php" ]; then

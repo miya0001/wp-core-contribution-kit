@@ -1,35 +1,14 @@
-# WordPress Installer on your desktop.
+# WordPress Core Contribution Kit
 
-WordPress development environment with PHP built-in web server + WP-CLI.
+WordPress core development environment with PHP built-in web server + WP-CLI.
+
+It is very easy to launch WordPress development environment from svn repository.
 
 ## Requires
 
-* OSX
 * php 5.4 or later
 * MySQL
-
-### Recommend
-
-* [Composer](https://getcomposer.org/)
-* [Mailcatcher](http://mailcatcher.me/)
-
-## Uage
-
-```
-$ curl https://.../run.sh | bash -s <db-user> <db-pass> <db-name>
-```
-
-or
-
-```
-$ ./run.sh <db-user> <db-pass> <db-name>
-```
-
-### Defaults
-
-* db-user: `root`
-* db-pass: (empty)
-* db-name: `wpdev`
+* WP-CLI
 
 ## How to use
 
@@ -41,39 +20,33 @@ $ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh
 Or
 
 ```
-$ git clone git@github.com:miya0001/wp-instant-setup.git && cd wp-instant-setup
-$ ./run.sh
-```
-
-### For MAMP users
-
-```
 $ mkdir ~/Desktop/wordpress && cd $_
-$ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s root root
+$ curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s <db-user> <db-pass> <db-name>
 ```
 
-Or
+## Defaults
 
-```
-$ git clone git@github.com:miya0001/wp-instant-setup.git && cd wp-instant-setup
-$ ./run.sh root root
-```
-
-## Default Account
+### WordPress
 
 * User: `admin`
 * Password: `admin`
+
+### MySQL
+
+* db-user: `root`
+* db-pass: (empty)
+* db-name: `wptrunk`
 
 ## Advanced Tips
 
 Add alias into your `~/.bash_profile` like following.
 
 ```
-alias wpserve="curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s <db-user> <db-pass>"
+alias wpcore="curl https://raw.githubusercontent.com/miya0001/wp-core-contribution-kit/master/run.sh | bash -s <db-user> <db-pass>"
 ```
 
 Then just run:
 
 ```
-$ wpserve <db-name>
+$ wpcore <db-name>
 ```

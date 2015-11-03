@@ -8,7 +8,7 @@ It is very easy to launch WordPress development environment from svn repository.
 
 * php 5.4 or later
 * MySQL
-* WP-CLI
+* WP-CLI 0.20 or later
 
 ## How to use
 

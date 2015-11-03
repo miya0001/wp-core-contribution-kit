@@ -24,6 +24,22 @@ $ mkdir ~/Desktop/wordpress && cd $_
 $ curl https://raw.githubusercontent.com/miya0001/wp-core-contribution-kit/master/run.sh | bash -s <db-user> <db-pass> <db-name>
 ```
 
+### Running automated testing for WordPress core
+
+Move into `trunk/` directory.
+
+```
+$ cd trunk
+```
+
+Then just run.
+
+```
+$ phpunit
+```
+
+https://make.wordpress.org/core/handbook/testing/automated-testing/
+
 ## Defaults
 
 ### WordPress
@@ -36,6 +52,11 @@ $ curl https://raw.githubusercontent.com/miya0001/wp-core-contribution-kit/maste
 * db-user: `root`
 * db-pass: (empty)
 * db-name: `wptrunk`
+
+### Databases
+
+* `wptrunk` - For WordPress
+* `wptest` - For PHPUnit
 
 ## Advanced Tips
 

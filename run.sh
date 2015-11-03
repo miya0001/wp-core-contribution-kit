@@ -38,9 +38,9 @@ fi
 svn co http://develop.svn.wordpress.org/trunk/ trunk
 
 cat trunk/wp-tests-config-sample.php \
-| sed -e s/database_name_here/$DB_TEST_NAME/ \
-| sed -e s/username_here/$DB_USER/ \
-| sed -e s/username_here/$DB_PASS/ > trunk/wp-tests-config.php
+| sed -e s/youremptytestdbnamehere/$DB_TEST_NAME/ \
+| sed -e s/yourusernamehere/$DB_USER/ \
+| sed -e s/yourpasswordhere/$DB_PASS/ > trunk/wp-tests-config.php
 
 if [ $DB_PASS ]; then
 wp core config \

@@ -7,6 +7,7 @@ mysql.server start
 DB_USER=${1-root}
 DB_PASS=$2
 DB_NAME=${3-wptrunk}
+DB_TEST_NAME=wptest
 PORT=8080
 WP_PATH=$(pwd)/trunk/src
 WP_TITLE='WordPress Trunk'
@@ -23,12 +24,23 @@ echo "path: trunk/src" > $(pwd)/wp-cli.yml
 if [ $DB_PASS ]; then
     echo "DROP DATABASE IF EXISTS $DB_NAME;" | mysql -u$DB_USER -p$DB_PASS
     echo "CREATE DATABASE $DB_NAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u$DB_USER -p$DB_PASS
+
+    echo "DROP DATABASE IF EXISTS $DB_TEST_NAME;" | mysql -u$DB_USER -p$DB_PASS
+    echo "CREATE DATABASE $DB_TEST_NAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u$DB_USER -p$DB_PASS
 else
     echo "DROP DATABASE IF EXISTS $DB_NAME;" | mysql -u$DB_USER
     echo "CREATE DATABASE $DB_NAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u$DB_USER
+
+    echo "DROP DATABASE IF EXISTS $DB_TEST_NAME;" | mysql -u$DB_USER
+    echo "CREATE DATABASE $DB_TEST_NAME DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;" | mysql -u$DB_USER
 fi
 
 svn co http://develop.svn.wordpress.org/trunk/ trunk
+
+cat trunk/wp-tests-config-sample.php \
+| sed -e s/database_name_here/$DB_TEST_NAME/ \
+| sed -e s/username_here/$DB_USER/ \
+| sed -e s/username_here/$DB_PASS/ > trunk/wp-tests-config.php
 
 if [ $DB_PASS ]; then
 wp core config \
